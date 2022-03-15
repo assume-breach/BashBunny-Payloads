@@ -4,7 +4,7 @@ This payload borrows heavily from the PasswordGrabber payload, but will bypass W
 
 Make sure that you download the malicious binary (Mimikatz, Lazagne, your own implant.exe) and place it in the BashBunny "tools" folder. 
 
-Update the script as needed with whatever binary you are trying to run. 
+Update the script as needed with whatever binary you are trying to run. By default, KatBurglar will DCSync with Mimikatz. Switch out the command for sekurlsa::logonpasswords or similar if you want to dump local hashes. 
 
 NOTE: The lazpayload.ps1 file utilizes powershell variables so it needs to be run as a PS1 script. The $ signs in the script confuse the BB so it must be called by a string to ran. 
 
