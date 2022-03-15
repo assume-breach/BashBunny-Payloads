@@ -1,3 +1,5 @@
+README.md
+
 KatBurglar is a BashBunny payload that allows an attacker to run malicious binaries directly from the BB disc on the system through admin privileges. 
 
 This payload borrows heavily from the PasswordGrabber payload, but will bypass Windows Defender. 
