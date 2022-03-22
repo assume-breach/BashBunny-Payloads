@@ -1,4 +1,3 @@
-.\amsi-opcode.ps1
 import-module .\dumpUserStore.ps1
 import-module activedirectory
 .\dumpUserStore.ps1 > username.txt
