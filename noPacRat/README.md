@@ -16,7 +16,7 @@ Usage:
 
 4. Download PsExec.exe from Windows Internals and place it in the "Tools" directory.
 
-5.Edit the payload.txt file to choose what you want after you get DA (add a DA, get an elevated shell, ect). You will need to play with the delays to get it to work. I have found that Q DELAY 38000 works well after the noPacRat.ps1 has run. 
+5. Edit the payload.txt file to choose what you want after you get DA (add a DA, get an elevated shell, ect). I have provided a few POCs in the "ChooseYourAdventure" folder. You will need to play with the delays to get it to work. I have found that Q DELAY 38000 works well after the noPacRat.ps1 has run. 
 
 CONSIDERATIONS
 
