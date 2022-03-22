@@ -8,13 +8,15 @@ The script will bypass AMSI/Windows Defender and dump any saved creds from the W
 
 Usage:
 
-Clone the noPacRat folder to the tools directory on the BB. 
+1. Clone the noPacRat folder to the tools directory on the BB. 
 
-Transfer the payload.txt file to whatever switch directory you want.
+2. Transfer the payload.txt file to whatever switch directory you want.
 
-Transfer the asmi-opcode.ps1 script to the tools directory (not the noPacRat folder). This script needs to be run outside of the noPacRat.ps1 script or it will get flagged by AMSI.
+3. Transfer the asmi-opcode.ps1 script to the tools directory (not the noPacRat folder). This script needs to be run outside of the noPacRat.ps1 script or it will get flagged by AMSI.
 
-Edit the payload.txt file to choose what you want after you get DA (add a DA, get an elevated shell, ect)
+4. Download PsExec.exe from Windows Internals and place it in the "Tools" directory.
+
+5.Edit the payload.txt file to choose what you want after you get DA (add a DA, get an elevated shell, ect). You will need to play with the delays to get it to work. I have found that Q DELAY 38000 works well after the noPacRat.ps1 has run. 
 
 CONSIDERATIONS
 
