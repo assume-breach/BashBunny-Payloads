@@ -1,4 +1,4 @@
-DumpsterDive is a BashBunny payload that uses a customized version of Lazagne to grab creds from a victim machine. 
+DumpsterDive is a BashBunny payload that uses a customized version of Lazagne to grab creds from a victim machine. When used correctly, Lazagne will bypass AV/Windows Defender/AMSI
 
 USAGE
 
